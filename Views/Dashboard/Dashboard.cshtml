@@ -3,12 +3,18 @@
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 <style>
-   
+    html, body {
+        
+        margin: 0;
+    }
+
     .wrapper {
         display: flex;
         flex-direction: column;
-        min-height: 80vh;
+        min-height: 100vh;
     }
 
     .main {
@@ -19,6 +25,7 @@
     .content {
         flex: 1;
         padding: 1rem;
+        margin-left: 15%;
     }
 
     .footer {
@@ -30,8 +37,15 @@
     .sidebar {
         background-color: #343a40;
         color: white;
-        min-width: 250px;
+        width: 250px;
         padding: 1rem;
+        flex-shrink: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+        padding-top: 56px; /* height of the top bar */
     }
 
         .sidebar a {
@@ -44,6 +58,12 @@
             .sidebar a:hover {
                 background-color: #495057;
             }
+
+    .content-wrapper {
+        margin-left: 250px; /* width of the sidebar */
+        flex: 1;
+    }
+
 </style>
 
     <div class="wrapper">
@@ -89,4 +109,5 @@
                     contentArea.innerHTML = '<h1>Welcome to the Dashboard</h1><p>This is your main content area.</p>';
             }
         }
-    </script>
+
+</script>
