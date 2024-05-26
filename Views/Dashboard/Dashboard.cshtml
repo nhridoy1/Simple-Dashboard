@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+   
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 80vh;
+    }
+
+    .main {
+        flex: 1;
+        display: flex;
+    }
+
+    .content {
+        flex: 1;
+        padding: 1rem;
+    }
+
+    .footer {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .sidebar {
+        background-color: #343a40;
+        color: white;
+        min-width: 250px;
+        padding: 1rem;
+    }
+
+        .sidebar a {
+            color: white;
+            display: block;
+            padding: 0.5rem 0;
+            text-decoration: none;
+        }
+
+            .sidebar a:hover {
+                background-color: #495057;
+            }
+</style>
+
+    <div class="wrapper">
+       
+
+        <!-- Main Content -->
+        <div class="main">
+            <!-- Left Sidebar -->
+            <div class="sidebar">
+                <h4>Left Sidebar</h4>
+                <a href="#" onclick="showContent('dashboard')">Dashboard</a>
+                <a href="#" onclick="showContent('reports')">Reports</a>
+                <a href="#" onclick="showContent('analytics')">Analytics</a>
+                <a href="#" onclick="showContent('settings')">Settings</a>
+            </div>
+            <!-- Content Area -->
+            <div class="content" id="content-area">
+                <h1>Welcome to the Dashboard</h1>
+            </div>
+        </div>
+
+        
+    </div>
+
+   
+    <script>
+        function showContent(section) {
+            let contentArea = document.getElementById('content-area');
+            switch (section) {
+                case 'dashboard':
+                    contentArea.innerHTML = '<h1>Dashboard</h1><p>This is the dashboard content.</p>';
+                    break;
+                case 'reports':
+                    contentArea.innerHTML = '<h1>Reports</h1><p>This is the reports content.</p>';
+                    break;
+                case 'analytics':
+                    contentArea.innerHTML = '<h1>Analytics</h1><p>This is the analytics content.</p>';
+                    break;
+                case 'settings':
+                    contentArea.innerHTML = '<h1>Settings</h1><p>This is the settings content.</p>';
+                    break;
+                default:
+                    contentArea.innerHTML = '<h1>Welcome to the Dashboard</h1><p>This is your main content area.</p>';
+            }
+        }
+    </script>
